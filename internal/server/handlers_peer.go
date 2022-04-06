@@ -377,11 +377,6 @@ func (s *Server) sendPeerConfigMail(peer wireguard.Peer) error {
 			Data:        bytes.NewReader(png),
 			Embedded:    true,
 		},
-		{
-			Name:        qrcodeFileName,
-			ContentType: "image/png",
-			Data:        bytes.NewReader(png),
-		},
 	}
 
 	if err := common.SendEmailWithAttachments(s.config.Email, s.config.Core.MailFrom, "", "WireGuard VPN Configuration",
